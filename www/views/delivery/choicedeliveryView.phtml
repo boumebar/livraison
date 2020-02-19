@@ -1,0 +1,72 @@
+<h3>Choississez votre adresse et date de livraison</h3>
+<div id="deliveryForm" class="container-fluid">  
+    <?php $now= new DateTime() ; ?>
+    <form method="POST">
+        <div class="form-group row">
+            <div class="form-group col-xl-4">
+                <label for="adress">Adresse</label>
+                <input type="text" name="adress" id="adress" value="<?=$adress['adress']?>">
+            </div>
+            <div class="form-group col-xl-3">
+                <label for="codePostal">Code Postal</label>
+                <input type="text" name="codePostal" id="codePostal" value="<?=$adress['codePostal']?>">
+            </div>
+            <div class="form-group col-xl-3">
+                <label for="city">Ville</label>
+                <input type="text" name="city" id="city" value="<?=$adress['city']?>">
+            </div>
+        </div>
+        <div class="form-group  row">
+            <div class="form-group col-md-2">
+                <label for="day">Jour</label>
+                <select  class="form-control" id="day" name="day">
+                    <?php for($i=1; $i<=31 ; $i++): ?>
+                        <option value="<?= $i ?>" <?php if($now->format("j")+1 == $i):?>selected<?php endif; ?>><?= $i ?></option>
+                    <?php endfor ;?>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="month">Mois</label>
+                <select  class="form-control" id="month" name="month">
+                    <option value="1" <?php if($now->format("n") == 1):?>selected<?php endif; ?>>Janvier</option>
+                    <option value="2" <?php if($now->format("n") == 2):?>selected<?php endif; ?>>Février</option>
+                    <option value="3" <?php if($now->format("n") == 3):?>selected<?php endif; ?>>Mars</option>
+                    <option value="4" <?php if($now->format("n") == 4):?>selected<?php endif; ?>>Avril</option>
+                    <option value="5" <?php if($now->format("n") == 5):?>selected<?php endif; ?>>Mai</option>
+                    <option value="6" <?php if($now->format("n") == 6):?>selected<?php endif; ?>>Juin</option>
+                    <option value="7" <?php if($now->format("n") == 7):?>selected<?php endif; ?>>Juillet</option>
+                    <option value="8" <?php if($now->format("n") == 8):?>selected<?php endif; ?>>Août</option>
+                    <option value="9" <?php if($now->format("n") == 9):?>selected<?php endif; ?>>Septembre</option>
+                    <option value="10" <?php if($now->format("n") == 10):?>selected<?php endif; ?>>Octobre</option>
+                    <option value="11" <?php if($now->format("n") == 11):?>selected<?php endif; ?>>Novembre</option>
+                    <option value="12" <?php if($now->format("n") == 12):?>selected<?php endif; ?>>Décembre</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="year">Année</label>
+                <select  class="form-control" id="year" name="year">
+                    <?php for($i=(new DateTime())->format("Y"); $i<=(new DateTime())->format("Y") + 5 ; $i++): ?>
+                        <option value="<?= $i ?>"><?= $i ?></option>
+                    <?php endfor ;?>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="hour">Heure</label>
+                <select  class="form-control" id="hour" name="hour">
+                    <?php for($i=5; $i<=14 ; $i++): ?>
+                        <option value="<?= $i ?>" <?php if($now->format("H") + 2 == $i):?>selected<?php endif; ?>><?= $i ?></option>
+                    <?php endfor ;?>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="minutes">Minutes</label>
+                <select  class="form-control" id="minutes" name="minutes">
+                    <?php for($i=0; $i<60 ; $i+= 15): ?>
+                        <option value="<?= $i ?>"><?php if($i == 0):?>0<?php endif; ?><?= $i ?></option>
+                    <?php endfor ;?>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="button1">Enregistrer</button>   
+    </form>
+</div>

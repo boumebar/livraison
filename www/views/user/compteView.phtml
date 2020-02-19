@@ -1,0 +1,133 @@
+<div id="compte" class="container">
+    <?php if(!$user->isAdmin()):?>
+        <section>
+            <h2>Mon compte</h2>
+            <div>
+                <ul>
+                    <li><span class="spanCompte">NOM : </span><?=$userDetails['name']?></li>
+                    <li><span class="spanCompte">PRENOM : </span><?=$userDetails['forname']?></li>
+                    <li><span class="spanCompte">ADRESSE : </span><?=$userDetails['adress']?></li>
+                    <li><span class="spanCompte">CODE POSTALE : </span><?=$userDetails['codePostal']?></li>
+                    <li><span class="spanCompte">VILLE : </span><?=$userDetails['city']?></li>
+                    <li><span class="spanCompte">NUMERO DE TELEPHONE : </span><?=$userDetails['numTel']?></li>
+                    <li><span class="spanCompte">EMAIL : </span><?=$userDetails['email']?></li>
+                </ul>
+                <a href="<?=$router->generateUrl("dej_user_update")."?id=".$userDetails['id']?>">Modifier</a>
+            </div>
+            <div>
+                <h3>Mes commandes</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Numero de commande</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Statut</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($ordersHistory as $order):?>
+                            <?php if($order['orderDate']):?>
+                            <tr>
+                                <td>
+                                    <?=date_format(new DateTime($order['orderDate']), 'd/m/Y')?> 
+                                </td>
+                                <td>
+                                    <a href="<?=$router->generateUrl("dej_order_showorderdetails")."?id=".$order['id']?>"><?=$order['id']?></a>
+                                </td>
+                                <td>
+                                    <?=number_format($order['total'],2," € "," ")?>
+                                </td>
+                                <td>
+                                    <?=$order['status']?>
+                                </td>
+                            </tr>
+                            <?php else :?>
+                                <p>pas de commande</p>
+                            <?php endif;?>
+                        <?php endforeach;?>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    <?php else:?>
+        <section>
+            <h2>Compte administrateur</h2>
+            <div>
+                <ul>
+                    <li><span class="spanCompte">NOM : </span><?=$userDetails['name']?></li>
+                    <li><span class="spanCompte">PRENOM : </span><?=$userDetails['forname']?></li>
+                    <li><span class="spanCompte">ADRESSE : </span><?=$userDetails['adress']?></li>
+                    <li><span class="spanCompte">CODE POSTALE : </span><?=$userDetails['codePostal']?></li>
+                    <li><span class="spanCompte">VILLE : </span><?=$userDetails['city']?></li>
+                    <li><span class="spanCompte">NUMERO DE TELEPHONE : </span><?=$userDetails['numTel']?></li>
+                    <li><span class="spanCompte">EMAIL : </span><?=$userDetails['email']?></li>
+                </ul>
+                <a href="<?=$router->generateUrl("dej_user_update")."?id=".$userDetails['id']?>">Modifier</a>
+            </div>
+        </section>
+        <section class="table-responsive">
+            <h3>toutes les Commandes</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Numero de commande</th>
+                        <th scope="col">Date de commande</th>
+                        <th scope="col">Date de livraison</th>
+                        <th scope="col">Heure de livraison</th>
+                        <th scope="col">Adresse de livraison</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($ordersHistory as $order):?>
+                        <?php if($order['orderDate']):?>
+                        <tr>
+                            <td>
+                                <a href="<?=$router->generateUrl("dej_order_showorderdetails")."?id=".$order['id']?>"><?=$order['id']?></a>
+                            </td>
+                            <td>
+                                <?=date_format(new DateTime($order['orderDate']), 'd/m/Y')?> 
+                            </td>
+                            <td>
+                                <?php if($order['deliveryAdress'] == 0):?>
+                                    <p>en attente de validation</p>
+                                <?php else:?>
+                                    <?=date_format(new DateTime($order['deliveryDate']), 'd/m/Y')?> 
+                                <?php endif;?>
+                            </td>
+                            <td>
+                                <?php if($order['deliveryAdress'] == 0):?>
+                                    <p>en attente de validation</p>
+                                <?php else:?>
+                                    <?=date_format(new DateTime($order['deliveryDate']), 'H'). " h ".date_format(new DateTime($order['deliveryDate']), 'i')?> 
+                                <?php endif;?>
+                            </td>
+                            <td>
+                                <?php if($order['deliveryAdress'] == 0):?>
+                                    <p>en attente de validation</p>
+                                <?php else:?>
+                                    <?=htmlspecialchars($order['deliveryAdress']." ".$order['deliveryPostal']." ".$order['deliveryCity'])?>
+                                <?php endif;?>
+                            </td>
+                            <td>
+                                <?php if($order['total'] == 0):?>
+                                    <p style="text-transform: capitalize">Commande en cours</p>
+                                <?php else:?>
+                                    <?=number_format($order['total'],2," € "," ")?>
+                                <?php endif;?>
+                            </td>
+                            <td>    
+                                <?=$order['status']?>
+                            </td>
+                        </tr>
+                        <?php else :?>
+                            <p>pas de commande</p>
+                        <?php endif;?>
+                    <?php endforeach;?>
+                </tbody>
+            </table>
+        </section>
+    <?php endif;?>
+</div>

@@ -1,0 +1,73 @@
+<h2>panier</h2>
+<div class="showBasket container-fluid" >  
+    <?php if(count($orderDetails) == 0): ?>
+        <h4>Votre panier est actuellement vide.</h4>
+    <?php else: ?>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Menu / Produit</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Prix unitaire</th>
+                        <th scope="col">Sous Total</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach($orderDetails as $orderLine): ?>
+                    <tr>
+                        <td>
+                            <?php if(isset($orderLine['menu_Id'])) echo 'menu ' ?><?= htmlspecialchars($orderLine['name']) ?>
+                        </td>
+                        <td>
+                            <?= $orderLine['quantity'] ?>
+                        </td>
+
+                        <td>
+                            <?= number_format($orderLine['priceEach'], 2, " € ", " ") ?>
+                        </td>
+
+                        <td>
+                            <?php $totalPrice +=   $orderLine['priceEach']*$orderLine['quantity'] ?>
+                            <?= number_format($orderLine['priceEach']* $orderLine['quantity'], 2, " € ", " ") ?>
+                        </td>
+                        <td>
+                            <?php if(isset($orderLine['product_Id'])):?>
+                                <a href="<?= $router->generateUrl("dej_order_deletetobasket")."?products=".$orderLine['product_Id']."&order=".$orderLine['id'] ?>">supprimer</a>
+                            <?php else:?>
+                                <a href="<?= $router->generateUrl("dej_order_deletetobasket")."?menus=".$orderLine['menu_Id']."&order=".$orderLine['id'] ?>">supprimer</a>
+                            <?php endif;?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="Total" >
+            <div class="table-responsive">
+                <h3>Total Panier</h3>
+                <table class="table">
+                    <tr>
+                        <th>Sous-Total</th>
+                        <td><?= number_format($totalPrice, 2, " € ", " ") ?></td>
+                    </tr>
+                    <tr>
+                        <th>Livraison</th>
+                            <td><?php if($totalPrice < 25):?><?=number_format($totalOrder - $totalPrice,2," € ", " ")?><?php else:?>0 €<?php endif;?></td>
+                    </tr>
+                    <tr>
+                        <th>Total</th>
+                        <td>
+                            <strong><?= number_format($totalOrder, 2, " € ", " ") ?></strong>
+                            <small>(dont <strong><?=number_format(($totalOrder*5.5)/100,2)?>€</strong> TVA)</small>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <a class="button1" href="<?= $router->generateUrl("dej_delivery_choice") ?>">Valider votre panier et passer la commande</a>
+
+    <?php endif ?>
+</div>

@@ -1,0 +1,44 @@
+<h2>Modifier ce produit</h2>
+<div class="back">
+    <a href="<?=$router->generateUrl('dej_products_show')?>" ><i class="fas fa-undo"></i>Revenir</a>
+</div>
+<form action="" method="POST" class="container" enctype = "multipart/form-data">
+    <div class="row">
+        <div class="col-10">
+            <label for="name" >Nom :</label>
+            <input type="text" name="name" id="name" value="<?=$product['name']?>">
+        </div>
+        <div class="col-10">
+            <label for="description" >Description :</label>
+            <textarea  name="description" id="description" rows="4" ><?=$product['description']?></textarea>
+        </div>
+        <div class="col-10">
+            <label for="price">Prix :</label>
+            <input type="text" name="price" id="price" value="<?=$product['price']?>">
+        </div>
+        <div class="col-10">
+            <div class="photoUpdate">
+                <?php if($product['image'] === '0'):?>
+                    <p>Aucune image n'avait été selectionné pour ce produit</p>
+                <?php else:?>
+                    <img src="<?=$router->getWwwPath().'/uploads/products/'.$product['image']?>" alt="">
+                <?php endif;?>
+            </div>
+            <label for="img">Choissisez une image :</label>
+            <input type="file" name="img" id="img" >
+        </div>
+        <div class="col-10">
+            <label for="category">Catégorie :</label>
+            <select name="category" id="category" >
+                <option value="boisson_chaude" <?php if($product['category'] === "boisson_chaude"):?>selected <?php endif;?>>Boisson chaude</option>
+                <option value="jus" <?php if($product['category'] === "jus"):?>selected <?php endif;?>>Jus</option>
+                <option value="viennoiserie" <?php if($product['category'] === "viennoiserie"):?>selected <?php endif;?>>Viennoiserie</option>
+                <option value="pain" <?php if($product['category'] === "pain"):?>selected <?php endif;?>>Pain</option>
+            </select>
+        </div>
+        <input type="text" hidden="hidden" name="id" value="<?= $product['id'] ?>">
+        <div class="col-12 buttonDiv">
+            <button class="button1" type="submit">Envoyer</button>
+        </div>
+    </div>
+</form>

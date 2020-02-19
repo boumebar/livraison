@@ -1,0 +1,41 @@
+<h2>A la carte</h2>
+<div>
+    <ul id="choix">
+        <li class="all active">Tous</li>
+        <li data-tag="pain">Pains</li>
+        <li data-tag="viennoiserie">Viennoiseries</li>
+        <li data-tag="jus">Jus</li>
+        <li data-tag="boisson_chaude">Boissons Chaudes</li>
+    </ul>
+    <?php if($user->isAdmin()) :?>
+        <a href="<?=$router->generateUrl('dej_products_create')?>"><i class="fas fa-plus"></i>Ajouter un produit</a>
+    <?php endif;?>
+    <div id="allProducts" class="all">
+        <?php foreach ($allProducts as $product) :?>
+            <article name="<?=htmlspecialchars($product['category'])?>">
+                <div>
+                    <a href="<?=$router->generateUrl('dej_products_showDetails').'?id='.$product['id']?>">
+                        <div>
+                            <?php if($product['image'] === "0"):?>
+                                <img src="<?=$router->getWwwPath().'/uploads/products/default_product.jpg'?>" alt="default_picture">
+                            <?php else:?>
+                                <img src="<?=$router->getWwwPath().'/uploads/products/'.htmlspecialchars($product['image'])?>" alt="product_picture">
+                            <?php endif;?>
+                        </div> 
+                        <h3><?=htmlspecialchars($product['name'])?></h3>
+                    </a>
+                </div>  
+                <div class="price">
+                    <p><?=number_format($product['price'], 2, " € ", " ")?></p>
+                    <a href="<?=$router->generateUrl('dej_order_addtobasket')."?products=".$product['id']."&q=1"?>" class="button1">Ajouter au panier</a>
+                    <?php if($user->isAdmin()):?>
+                        <div class="admin">
+                            <p><a href="<?=$router->generateUrl('dej_products_update')."?id=".$product['id']?>"><i class="fas fa-pen"></i>Modifier</a></p>
+                            <p><a href="<?=$router->generateUrl('dej_products_delete')."?id=".$product['id']?>"><i class="fas fa-times"></i>Supprimer</a></p>
+                        </div>
+                    <?php endif?>
+                </div>       
+            </article>        
+        <?php endforeach;?>
+    </div>
+</div>

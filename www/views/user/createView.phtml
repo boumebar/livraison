@@ -1,0 +1,44 @@
+<h2>Création de compte</h2>
+
+<form method="Post" class="container" autocomplete="off">
+    <div class="row">  
+        <div class="col-md-10">
+            <label for="name">Nom <span class="etoile"> *</span> :</label>
+            <input type="text" name="name" id="name" placeholder="Nom" >
+        </div>
+        <div class="col-md-10">
+            <label for="forname">Prénom<span class="etoile"> *</span> :</label>
+            <input type="text" name="forname" id="forname" placeholder="Prenom" autocomplete="off">
+        </div>
+        <div class="col-md-10">
+            <label for="email">Email<span class="etoile"> *</span> :</label>
+            <input type="email" name="email" id="email" placeholder="Email" autocomplete="off">
+        </div>
+        <div class="col-md-10">
+            <label for="password">Mot de passe<span class="etoile"> *</span> :</label>
+            <input type="password" name="password" id="password" placeholder="Mot de passe" autocomplete="on">
+        </div>
+        <div class="col-md-10">
+            <label for="Password">Confirmez votre mot de passe<span class="etoile"> *</span> :</label>
+            <input type="password" name="Password" id="Password" placeholder="Confirmez votre mot de passe">
+        </div>
+        <div class="col-md-10">
+            <label for="adress">Adresse<span class="etoile"> *</span> :</label>
+            <input type="text" name="adress" id="adress" placeholder="Adresse">
+        </div>
+        <div class="col-md-10">
+            <label for="codePostal">Code Postal<span class="etoile"> *</span> :</label>
+            <input type="text" name="codePostal" id="codePostal" placeholder="Code Postal">
+        </div>
+        <div class="col-md-10">
+            <label for="city">Ville<span class="etoile"> *</span> :</label>
+            <input type="text" name="city" id="city" placeholder="Ville">
+        </div>
+        <div class="col-md-10">
+            <label for="phone">Téléphone<span class="etoile"> *</span> :</label>
+            <input type="tel" name="phone" id="phone" pattern="[0-9]{10}" placeholder="Téléphone">
+        </div>
+        <p class="etoile"><strong>* Ces champs sont obligatoires</strong></p>
+        <input class="button1" type="submit" value="Envoyer">
+    </div>  
+</form>

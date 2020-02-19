@@ -1,0 +1,32 @@
+<h2>Nos menus</h2>
+<?php if($user->isAdmin()) :?>
+    <a href="<?=$router->generateUrl('dej_menus_create')?>"><i class="fas fa-plus"></i>Ajouter un menu</a>
+<?php endif;?>
+<div id="allFormules" class="all container-fluid">
+    <?php foreach ($allMenus as $menu) :?>
+        <article>
+            <div>
+                <a href="<?=$router->generateUrl('dej_menus_showDetails').'?id='.$menu['id']?>">
+                    <div>
+                        <?php if($menu['image'] === "0"):?>
+                            <img src="<?=$router->getWwwPath().'/uploads/menus/default_menus.jpg'?>" alt="default_picture">
+                        <?php else:?>
+                            <img src="<?=$router->getWwwPath().'/uploads/menus/'.htmlspecialchars($menu['image'])?>" alt="menu_picture">
+                        <?php endif;?>
+                    </div>
+                    <h3>menu <?=htmlspecialchars($menu['name'])?></h3>
+                </a>
+            </div>
+            <div class="price">
+                <p><?=number_format($menu['price'], 2, " € ", " ")?></p>
+                <a href="<?=$router->generateUrl('dej_order_addtobasket')."?menus=".$menu['id']."&q=1"?>" class="button1">Ajouter au panier</a>
+            </div>    
+            <?php if($user->isAdmin()):?>
+                <div class="admin">
+                    <p><a href="<?=$router->generateUrl('dej_menus_update')."?id=".$menu['id']?>"><i class="fas fa-pen"></i>Modifier</a></p>
+                    <p><a href="<?=$router->generateUrl('dej_menus_delete')."?id=".$menu['id']?>"><i class="fas fa-times"></i>Supprimer</a></p>
+                </div>
+            <?php endif?>    
+        </article>
+    <?php endforeach;?>
+</div>

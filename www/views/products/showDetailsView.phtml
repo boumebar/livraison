@@ -1,0 +1,27 @@
+<div class="back">
+    <a href="<?=$router->generateUrl('dej_products_show')?>" ><i class="fas fa-undo"></i>Revenir</a>
+</div>
+<div class="details" id="productDetails">
+    <div>
+        <?php if($product['image'] === "0"):?>
+            <img src="<?=$router->getWwwPath().'/uploads/products/default_product.jpg'?>" alt="default_picture">
+        <?php else:?>
+            <img src="<?=$router->getWwwPath().'/uploads/products/'.htmlspecialchars($product['image'])?>" alt="product_picture">
+        <?php endif;?>
+    </div>
+    <div>
+        <h2><?=htmlspecialchars($product['name'])?></h2>
+        <p><?=number_format($product['price'], 2, " € ", " ")?></p>
+        <div>
+            <p><?=htmlspecialchars($product['description'])?></p>
+        </div>
+        <div>
+            <form action="" method="post">    
+                <div class="valider">
+                    <input type="number" name="quantity" value="1" min="1" max="20" pattern="[0-9]{2}" step="1">
+                    <button type="submit">Ajouter au panier</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

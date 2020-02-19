@@ -1,0 +1,116 @@
+<div class="bigPhoto " id="mainPhoto">
+    <img src="<?=$router->getWwwPath()."/images/homepage.jpg"?>" alt="">
+    <p class="paraPhoto">des produits frais sans bouger de son lit</p>
+</div>
+<div class="container">
+    <h2>Comment ça marche ?</h2>
+    <h3>Commandez en 3 étapes</h3>
+    <div class='comment'>
+        <figure>
+            <img src="<?=$router->getWwwPath()."/images/icones/home2.png"?>" alt="icones">
+            <figcaption>
+                <h4>Choisisez votre formule</h4>
+                <p>Sélectionnez la formule qui vous convient</p>
+            </figcaption>
+        </figure>
+        <figure>
+            <img src="<?=$router->getWwwPath()."/images/icones/home1.png"?>" alt="icones">
+            <figcaption>
+                <h4>Localisez-vous</h4>
+                <p>Choisissez votre ville et votre quartier</p>
+            </figcaption>
+        </figure>
+        <figure>
+            <img src="<?=$router->getWwwPath()."/images/icones/home3.png"?>" alt="icones">
+            <figcaption>
+                <h4>Passez votre commande</h4>
+                <p>Commandez votre formule en ligne</p>
+            </figcaption>
+        </figure>
+    </div> 
+    <hr> 
+    <div>
+        <h2>Suggestions</h2>
+        <div id="slider">
+            <div class="container my-4">
+                
+                <!--Carousel Wrapper-->
+                <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+                    <!--Controls-->
+                    <div class="controls-top">
+                        <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-circle-left"></i></a>
+                        <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fas fa-chevron-circle-right"></i></a>
+                    </div>
+                    <!--/.Controls-->
+
+                    <!--Indicators-->
+                    <ol class="carousel-indicators">
+                        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+                        <li data-target="#multi-item-example" data-slide-to="1"></li>
+                        <li data-target="#multi-item-example" data-slide-to="2"></li>
+                    </ol> 
+                    <!--/.Indicators-->
+
+                    <!--Slides-->
+                    <div class="carousel-inner" role="listbox">
+
+                        <!--First slide-->
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <?php $i=0;foreach($products as $product):?>
+                                    <?php if($i == 0):?>
+                                        <div class="col-md-4">
+                                    <?php else:?>
+                                        <div class="col-md-4 clearfix d-none d-md-block">
+                                    <?php endif;?>
+                                        <div class="card mb-2">
+                                            <?php if($product['image'] === "0"):?>
+                                                <img src="<?=$router->getWwwPath().'/uploads/products/default_product.jpg'?>" alt="default_picture">
+                                            <?php else:?>
+                                                <img src="<?=$router->getWwwPath().'/uploads/products/'.htmlspecialchars($product['image'])?>" alt="product_picture">
+                                            <?php endif;?>
+                                            <div class="card-body">
+                                                <h4 class="card-title"><?=$product['name']?></h4>
+                                                <a href="<?=$router->generateUrl("dej_products_showDetails")."?id=".$product['id']?>" class="btn button1">Voir</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php $i++;endforeach;?>
+                            </div>
+                        </div>
+                        <!--/.First slide-->
+
+                        <!--Second slide-->
+                        <div class="carousel-item">
+                            <div class="row">
+                                <?php $i=0;foreach($menus as $menu):?>
+                                    <?php if($i == 0):?>
+                                        <div class="col-md-4">
+                                    <?php else:?>
+                                        <div class="col-md-4 clearfix d-none d-md-block">
+                                    <?php endif;?>
+                                        <div class="card mb-2">
+                                            <?php if($menu['image'] === "0"):?>
+                                                <img src="<?=$router->getWwwPath().'/uploads/products/default_product.jpg'?>" alt="default_picture">
+                                            <?php else:?>
+                                                <img src="<?=$router->getWwwPath().'/uploads/menus/'.htmlspecialchars($menu['image'])?>" alt="menu_picture">
+                                            <?php endif;?>
+                                            <div class="card-body">
+                                                <h4 class="card-title">Menu <?=$menu['name']?></h4>
+                                                <a href="<?=$router->generateUrl("dej_menus_showDetails")."?id=".$menu['id']?>" class="btn button1">Voir</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php $i++;endforeach;?> 
+                            </div>
+                        </div>
+                        <!--/.Second slide-->
+                    </div>
+                    <!--/.Slides-->
+
+                </div>
+                <!--/.Carousel Wrapper-->
+            </div>
+        </div>
+    </div>  
+</div>

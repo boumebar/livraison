@@ -1,0 +1,100 @@
+<div id="orderDetails" class="container-fluid">
+    <h2>Commande n° <?=$_GET['id']?></h2>
+    <div class="back">
+        <a href="<?=$router->generateUrl('dej_user_compte').'?id='.$userSession->getId()?>" ><i class="fas fa-undo"></i>Revenir</a>
+    </div>
+    <div>
+        <?php if($orders[0]['deliveryAdress'] == 0):?>
+            <p>La commande n° <strong><?=$_GET['id']?></strong> est toujours dans la panier</p>
+        <?php else:?>
+            <div>
+                <p>La commande n° <strong><?=$_GET['id']?></strong> est validée</p>
+            </div>
+        <?php endif;?>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Menu / Produit</th>
+                    <th scope="col">Quantité</th>
+                    <th scope="col">Prix unitaire</th>
+                    <th scope="col">Sous Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($orders as $orderLine): ?>
+                    <tr>
+                    <!-- <?php var_dump($orderLine)?> -->
+                        <td>
+                            <?php if(isset($orderLine['menu_id'])) echo 'menu '.htmlspecialchars($orderLine['name']) ?><?= htmlspecialchars($orderLine['product_name']) ?>
+                        </td>
+                        <td>
+                            <?= $orderLine['quantity'] ?>
+                        </td>
+                        <td>
+                            <?= number_format($orderLine['priceEach'], 2, " € ", " ") ?>
+                        </td>
+                        <td>
+                            <?php $totalPrice +=   $orderLine['priceEach']*$orderLine['quantity'] ?>
+                            <?= number_format($orderLine['priceEach']* $orderLine['quantity'], 2, " € ", " ") ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <div class="row container-fluid">
+        <div class="Total col-12 col-lg-6"  class="container">
+                        <div class="table-responsive">
+                            <h3>Informations de livraison</h3>
+                            <table class="table">
+                                <tr>
+                                    <th>Date et heure : </th>
+                                    <td><?=date_format(new DateTime($orders[0]['deliveryDate']), 'd/m/Y')?> à <?=date_format(new DateTime($orders[0]['deliveryDate']), 'H')?> h <?=date_format(new DateTime($orders[0]['deliveryDate']), 'i')?></td>
+                                </tr>
+                                <tr>
+                                    <th>Contact :</th>
+                                    <td><?=$user['name']." ".$user['forname']?></td>
+                                </tr>
+                                <tr>
+                                    <th>Tel : </th>
+                                    <td><?=$user['numTel']?></td>
+                                </tr>
+                                <tr>
+                                    <th>Mail : </th>
+                                    <td><?=$user['email']?></td>
+                                </tr>
+                                <tr>
+                                    <th>Adresse : </th>
+                                    <td>
+                                        <?=$orders[0]['deliveryAdress']." " .$orders[0]['deliveryPostal']." ".$orders[0]['deliveryCity']?>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+        </div>
+        <div class="Total col-12 col-lg-6" class="container">
+            <div class="table-responsive">
+                <h3>Total Panier</h3>
+                <table class="table">
+                    <tr>
+                        <th>Sous-Total</th>
+                        <td><?= number_format($totalPrice, 2, " € ", " ") ?></td>
+                    </tr>
+                    <tr>
+                        <th>Expédition</th>
+                            <td><?php if($totalPrice < 25):?><?=number_format($totalOrder - $totalPrice,2," € ", " ")?><?php else:?>0 €<?php endif;?></td>
+                    </tr>
+                    <tr>
+                        <th>Total</th>
+                        <td>
+                            <strong><?= number_format($totalOrder, 2, " € ", " ") ?></strong>
+                            <small>(dont <strong><?=number_format(($totalOrder*5.5)/100,2)?>€</strong> TVA)</small>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

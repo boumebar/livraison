@@ -1,0 +1,31 @@
+<div class="back">
+        <a href="<?=$router->generateUrl('dej_menus_show')?>" ><i class="fas fa-undo"></i>Revenir</a>
+</div>
+<div class="details" id="menuDetails">
+    <div>
+        <?php if($menu['image'] === "0"):?>
+            <img src="<?=$router->getWwwPath().'/uploads/menus/default_menus.jpg'?>" alt="default_picture">
+        <?php else:?>
+            <img src="<?=$router->getWwwPath().'/uploads/menus/'.htmlspecialchars($menu['image'])?>" alt="menu_picture">
+        <?php endif;?>
+    </div>
+    <div>
+        <h2>menu <?=htmlspecialchars($menu['name'])?></h2>
+        <p><?=number_format($menu['price'], 2, " € ", " ")?></p>
+        <ul>
+            <?php foreach($allProducts as $product):?>
+                <?php if($product['quantity'] != 0):?>
+                    <li><?=$product['quantity']?> <?=$product['name']?><?php if($product['quantity'] >1 && $product['category'] != "jus"):?>s<?php endif;?></li>
+                <?php endif;?>
+            <?php endforeach;?>
+        </ul>
+        <div>
+            <form action="" method="post">
+                <div class="valider">
+                    <input type="number" name="quantity" value="1" min="1" max="20" pattern="[0-9]{2}" step="1">
+                    <button type="submit">Ajouter au panier</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<h2>Connexion</h2>
+<form class="container" action="" method="POST">
+    <div >  
+        <div>
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" placeholder="Entrer votre email">
+        </div>
+        
+        <div>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" placeholder="Entrer votre mot de passe">
+        </div>
+        <div class="buttonDiv">
+            <input class="button1" type="submit" value="LOGIN"> 
+        </div>
+        
+    </div>  
+</form>
+
+<div>
+    <p>Pas encore de compte <a href="<?=$router->generateUrl("dej_user_create")?>"><span class="rose">Inscrivez-vous</span></a></p>
+</div>

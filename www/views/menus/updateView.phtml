@@ -1,0 +1,83 @@
+<h2>Modifier le menu</h2>
+<div class="back">
+    <a href="<?=$router->generateUrl('dej_menus_show')?>" ><i class="fas fa-undo"></i>Revenir</a>
+</div>
+<form action="" method="POST" class="container" enctype = "multipart/form-data">
+    <div class="row">
+        <div class="col-10">
+            <label for="name" >Nom :</label>
+            <input type="text" name="name" id="name" value="<?=$menu['name']?>">
+        </div>
+        <div class="col-10">
+            <label for="nbrBoisson" >Combien de boissons chaudes :</label>
+            <select name="nbrBoisson">
+                <?php for($i=0; $i<7;$i++):?>
+                    <option value="<?=$i?>"<?php if($i == $allBoissonChaudes[0]['quantity']):?>selected<?php endif;?>><?=$i?></option>                                        
+                <?php endfor;?>
+            </select>
+            <select name="boissonChaude" id="boissonChaude" class="col-6"> 
+                <?php foreach($allBoissonChaudes as $boissonChaude):?>
+                    <option value="<?=$boissonChaude['id']?>"><?=$boissonChaude['name']?></option>
+                <?php endforeach;?>
+            </select>
+        </div>
+        <div class="col-10">
+            <label for="viennoiseries" >Choississez vos viennoiseries :</label>
+            <select name="nbrViennoiseries" >
+                <?php for($i=0; $i<7;$i++):?>
+                    <option value="<?=$i?>"<?php if($i == $allViennoiseries[0]['quantity']):?>selected<?php endif;?>><?=$i?></option>                                        
+                <?php endfor;?>
+            </select>
+            <select name="viennoiseries" id="viennoiseries" class="col-6">
+                <?php foreach($allViennoiseries as $viennoiseries):?>
+                    <option value="<?=$viennoiseries['id']?>" <?php if($viennoiseries['id'] == $allViennoiseries[0]['id']):?>selected<?php endif;?>><?=$viennoiseries['name']?></option>
+                <?php endforeach;?>
+            </select>
+        </div>
+        <div class="col-10">
+            <label for="viennoiseries2" >Choississez vos viennoiseries :</label>
+            <select name="nbrViennoiseries2" >
+                <?php for($i=0; $i<7;$i++):?>
+                    <option value="<?=$i?>"<?php if($i == $allViennoiseries[1]['quantity']):?>selected<?php endif;?>><?=$i?></option>                                        
+                <?php endfor;?>
+            </select>
+            <select name="viennoiseries2" id="viennoiseries2" class="col-6">
+                <?php foreach($allViennoiseries as $viennoiseries):?>
+                    <option value="<?=$viennoiseries['id']?>" <?php if($viennoiseries['id'] == $allViennoiseries[1]['id']):?>selected<?php endif;?>><?=$viennoiseries['name']?></option>
+                <?php endforeach;?>
+            </select>
+        </div>
+        <div class="col-10">
+            <label for="jus" >Choississez vos boissons :</label>
+            <select name="nbrJus" >
+                <?php for($i=0; $i<7;$i++):?>
+                    <option value="<?=$i?>"<?php if($i == $allJus[0]['quantity']):?>selected<?php endif;?>><?=$i?></option>                                        
+                <?php endfor;?>
+            </select>
+            <select name="jus" id="jus" class="col-6">
+                <?php foreach($allJus as $jus):?>
+                    <option value="<?=$jus['id']?>"><?=$jus['name']?></option>
+                <?php endforeach;?>
+            </select>
+        </div>
+        <div class="col-10">
+            <label for="price">Prix :</label>
+            <input type="text" name="price" id="price" value="<?=$menu['price']?>" >
+        </div>
+        <div class="col-10">
+            <div class="photoUpdate">
+                <?php if($menu['image'] === '0'):?>
+                    <p>Aucune image n'avait été selectionné pour ce produit</p>
+                <?php else:?>
+                    <img src="<?=$router->getWwwPath().'/uploads/menus/'.$menu['image']?>" alt="">
+                <?php endif;?>
+            </div>
+            <label for="img">Choissisez une image :</label>
+            <input type="file" name="img" id="img" >
+        </div>
+        <input type="text" hidden="hidden" name="id" value="<?= $menu['id'] ?>">
+        <div class="col-12 buttonDiv">
+            <button class="button1" type="submit">Envoyer</button>
+        </div>
+    </div>
+</form>

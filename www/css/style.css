@@ -1,0 +1,1209 @@
+/**************************************************************
+*                        GENERAL                              *
+*                                                             *
+***************************************************************/
+*{
+    box-sizing: border-box;
+	outline: none; 
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    background-color:#fffef9;
+    font-family: 'Nunito', sans-serif!important;
+    color: #666;
+    line-height: 2;
+    margin: 0;
+    padding: 0;
+    font-size: 1.8rem;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none!important;
+    color: #666;
+    font-weight: bold;
+    transition: 0.2s ease-in-out;
+}
+a:hover{
+    color: inherit;
+}
+img{
+    max-width: 100%;
+}
+h1{
+    text-align: center;
+    margin: 35px auto;
+    display: inline;
+    color: rgba(178, 209, 177,0.9);
+    text-transform: capitalize;
+    font-size: 3rem;
+    font-family: 'Chilanka', cursive;
+    font-weight: 900;
+    word-spacing: 7px;
+}
+h2{
+    font-size: 5.5rem;
+    font-weight: bold;
+    margin: 50px 0;
+}
+h3{
+    font-size: 2.8rem;
+    font-weight: normal!important;
+    margin-top: 30px; 
+    text-transform: uppercase;
+}
+h4{
+    font-size: 2.8rem;
+    margin: 35px 0 20px;
+}
+h5{
+    font-size: 2rem;
+    margin: 15px 0;
+}
+.rose{
+    color: rgb(253, 24, 131);
+    font-weight: bold;
+}
+.back{
+    display: block;
+    margin: 60px 0;
+}
+.back a{
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: rgb(190, 218, 189);
+}
+.container{
+    padding: 0;
+}
+.fas{
+    margin-right: 7px;
+}
+.fa-times{
+    color: red;
+}
+
+
+/**************************************************************
+*                        HEADER                               *
+*                                                             *
+***************************************************************/
+
+#topbar{ 
+	background-color: rgb(80, 79, 79);
+	padding: 5px;
+	margin: 0;
+	color: white;
+	text-align: center;
+}
+
+header >div{
+    display: flex;
+    -ms-flex-wrap: nowrap!important;
+    flex-wrap: wrap;
+}
+
+header >div div +div{
+    display: flex;
+    -ms-flex-wrap: nowrap!important;
+    flex-wrap: wrap;
+    flex-basis: 88%;
+}
+header a{
+    font-family: 'Karla', 'sans-serif';
+    color: #292933;
+    text-transform: capitalize;
+}
+#logo{
+    padding: 10px;
+    margin-left: 20px;
+    flex-basis: 10%;
+}
+#logo img{
+    width: 150px;
+}
+header ul{
+    padding: 55px 0;
+    flex-basis: 75%;
+    justify-content: flex-end;
+}
+header li{
+    margin-right: 35px;
+}
+header ul a {
+    font-size: 2.3rem;
+    transition: all 0.3s ease-in-out;
+}
+header ul a:hover{
+   color: rgb(190, 214, 194);
+}
+.dropdown-menu{
+    border: 1px solid #e7e6e2; 
+    background-color: #fffef9;
+}
+.dropdown-item{
+    background-color:#fffef9; 
+    width: 180px;
+}
+.dropdown-item:hover{
+    background-color:rgba(178, 209, 177,1); 
+}
+#panier{
+    padding-right: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 25%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#panier img{
+    margin-left: 20px;
+    width: 32px;
+    padding-bottom: 10px;
+}
+#nbrCart{
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding: 0px 8px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    margin-left: -13px;
+    margin-top: -10px;
+}
+
+
+
+/**************************************************************
+*                        ASIDE                                *
+*                                                             *
+***************************************************************/
+
+.flashbag_message{
+    text-align: center;
+    color: rgb(167, 187, 170);
+    font-style: italic;
+    font-weight: bold;
+}
+.flashbag_message li{
+    text-align: justify;
+    text-align: center;
+}
+
+/**************************************************************
+*                        MAIN                                 *
+*                                                             *
+***************************************************************/
+
+/******************* Generale ******************/
+
+.bigPhoto img{
+    width: 100%!important;
+    margin-bottom: -400px;
+    max-height: 1200px!important;
+}
+.paraPhoto{
+    color: white;
+    font-size: 90px;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-family: "Oswald",sans-serif;
+    text-shadow: 0 0 7px rgba(0,0,0,0.5);
+    margin-bottom: 270px;
+    text-align: center;
+    padding: 0 15px;
+}
+
+main div {
+    margin: 0 auto;
+    text-align: center;
+}
+.valider input[type=number]{
+    flex-basis: 75px;
+    margin: 15px 0;
+}
+.valider button{
+    font-size: 1.5rem;
+    padding: 0px 35px;
+    background-color: #333;
+    color: whitesmoke;
+    text-transform: uppercase;
+    margin-left: 35px;
+}
+
+/***************** Formulaire ****************/
+form{
+    margin: 40px 0;
+    background-color: white;
+    padding: 25px;
+    border-radius: 7px;
+}
+form label{
+    display: block;
+    width: 50%!important;
+    font-size: 1.9rem;
+    font-weight: bold;
+}
+form input , form textarea{
+    width: 100%;
+    font-size: 1.9rem;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(211, 210, 210);
+}
+form div{
+    padding: 5px 30px;
+}
+form div div{
+    text-align: left;
+    margin: 8px 0;
+}
+.buttonDiv{
+    text-align: center;
+    padding: 0 25px;
+}
+.button1{
+    background-color:rgba(178, 209, 177,0.7);
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    border: none;
+}
+.etoile{
+    color: red;
+}
+p.etoile{
+    margin: 15px;
+}
+
+/******************* home page *****************/
+
+.comment{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 80px 0;
+}
+.comment figure{
+    margin: 0;
+}
+.comment img{
+    width: 180px;
+}
+/***************slider ***********/
+
+#slider{
+    width: 80%!important;
+    margin: 20px auto;
+}
+#slider .fas{
+    color:rgb(185, 207, 188) ;
+    font-size: 2.7rem;
+}
+#slider .button1{
+    font-size: 1.4rem;
+    padding: 8px 17px;
+    color: white;
+    border-radius: 10px;
+}
+#slider h4{
+    font-size: 2.1rem;
+}
+#slider h5{
+    font-family:"Oswald",sans-serif;
+    font-weight: bold;
+    text-shadow: 0 0 7px rgba(0,0,0,0.5);
+    text-transform: capitalize;
+    color: white;
+    font-size: 4rem;
+}
+#slider p{
+    font-family:"Oswald",sans-serif;
+    text-transform: capitalize;
+    color: white;
+    font-size: 2rem;
+}
+#slider .mb-2{
+    max-height: 600px;
+}
+#slider img{
+    max-height: 300px;
+}
+#slider .carousel-item{
+    max-height: 800px;
+}
+    
+
+/********************* menus *****************/
+
+.admin{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+.photoUpdate{
+    padding: 0;
+    width: 50%;
+    height: 350px;
+}
+.photoUpdate img{
+    width: 100%;
+    height: 100%;
+}
+
+/** allMenus **/
+
+#allFormules article{
+    background-color: rgb(235, 235, 235);
+    padding-bottom: 25px;
+    border-radius: 15px;
+    width: 20%;
+    margin: 20px 10px;
+}
+#allFormules a div{
+    height: 100%;
+    width: 100%;
+}
+#allFormules img{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 100%;
+    height: 100%;
+}
+#allFormules{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 50px;
+    margin: 50px 0;
+}
+#allFormules .price p{
+    display: block;
+}
+#allFormules .button1{
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    color: rgb(131, 131, 131);
+}
+.all h3{
+    color: #666;
+    font-size: 2.3rem;
+}
+
+
+
+
+/** menuDetails **/
+
+.details{
+    padding: 30px;
+    width: 90%;
+    margin: 60px auto;
+    display: flex;
+    vertical-align: top;
+    border-bottom: 1px solid #e5e5e5;
+}
+.details img{
+    width: 100%;
+    height: 100%;
+}
+.details h2{
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 4.5rem;
+}
+.details p{
+    display: block;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.details>div:first-child{
+    padding: 0;
+    margin: 0;
+    flex-basis: 40%;
+}
+.details >div:last-child{
+    margin-left: 70px;
+    margin-right: 0;
+    text-align: left;
+    flex-basis: 60%;
+}
+.details>div>ul{
+    padding: 0;
+}
+.details>div>ul li::before{
+    content: "-";
+    margin-right: 5px;
+}
+.details >div >div{
+    margin: 45px 0;
+    text-align: left;
+    width: 100%;
+}
+.details label{
+    display: inline;
+    font-weight: normal;
+}
+.details select {
+    padding: 10px 25px;
+    border: 1px solid #e5e5e5;
+    color: #666;
+    margin: 20px 0 20px 15px;
+}
+.details form{  
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+.details .valider{
+    display:flex;
+    flex-wrap: wrap;
+    margin: 50px 0;
+    width: 100%;
+    padding: 0;
+}
+
+
+
+
+/****************** Products *********************/
+
+/** allProducts **/
+.none{
+    display: none;
+}
+#choix{
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    background-color:rgba(178, 209, 177,0.4);
+    margin: 25px 0;
+    border-radius: 20px;
+}
+
+#choix li{
+    flex: 1;
+    padding: 25px;
+}
+#allProducts{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+    justify-content: flex-start;
+}
+#allProducts article{
+    background-color: rgb(235, 235, 235);
+    padding-bottom: 25px;
+    border-radius: 15px;
+    width: 20%;
+    margin:20px;
+}
+#allProducts img{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 100%;
+    height: 100%;
+}
+#allProducts .button1{
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    color: rgb(131,131,131);
+}
+#allProducts a div{
+    height: 280px;
+    width: 100%;
+}
+
+/** productDetails **/
+
+
+#productDetails >div >p{
+    font-size: 2.7rem;
+    font-weight: 600;
+}
+#productDetails >div div p{
+    font-size: 1.9rem;
+    font-weight: lighter;
+    margin: 0;
+}
+
+
+
+
+/*************** Mon Compte ********************/
+
+#compte div{
+    width: 80%;
+    margin: 80px auto;
+    text-align: justify;
+    line-height: 2.3;
+    text-transform: uppercase;
+}
+#compte div >a{
+    color: #666;
+    text-align: center;
+    display: block;
+    background-color: rgb(190, 218, 189);
+    width: 160px;
+    border-radius: 10px;
+    margin: 30px auto;
+}
+.spanCompte{
+    font-weight: bold;
+}
+#compte td a{
+    color: rgb(149, 197, 146);
+    padding: 20px;
+    transition: color ease-in-out 0.5s;
+}
+#compte td a:hover{
+    color: rgb(113, 150, 110);
+}
+#compte table{
+    text-transform: capitalize;
+    margin: 50px 0;
+}
+#compte th{
+    font-size: 1.6rem;
+}
+#compte td{
+    font-size: 1.5rem;
+}
+#compte ul{
+    padding: 0;
+}
+
+
+/********************** FAQ ********************/
+
+#faq{
+    margin-top: 20px;
+    padding: 70px;
+}
+#faq div{
+    text-align: justify;
+    text-align: left;
+    margin: 5px 15px;
+}
+#faq .fas{
+    margin-right: 10px;
+    font-size: 2rem;
+    color: rgb(190, 218, 189);
+}
+#faq h4{
+    font-size: 3.1rem;
+}
+.hidden{
+    display: none;
+    overflow: hidden;
+}
+.question{
+    cursor: pointer;
+}
+
+
+/******************** delivery *******************/
+
+#delivery h3{
+    margin: 20px 0;
+}
+#delivery p:first-child{
+    text-transform:uppercase;
+    font-weight: bold;
+    color:red; 
+    display:block;   
+}
+#delivery .fas{
+    color: #ABDAC6;
+    font-size: 4rem;
+    margin-right: 10px;
+}
+#delivery hr{
+    width: 200px;
+    margin: 30px auto;
+}
+#delivery div{
+    margin-bottom: 30px;
+}
+#deliveryForm select{
+    font-size: 1.8rem;
+}
+#delivery>img{
+    width: 100%!important;
+}
+ 
+/******************** A propos ******************/
+
+.a_propos{
+    text-align: justify;
+    text-align: left;
+    padding: 20px 20px 50px;
+}
+.a_propos h4{
+    color: black;
+}
+.a_propos h3{
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 3rem;
+    font-weight: bold!important;
+}
+
+/********************** About Us **************/
+
+#about{
+    padding: 10px 0;
+    margin-bottom: 50px;
+}
+#about >img{
+    float: right;
+    width: 30%;
+    margin: 20px 50px;
+}
+#about div img{
+    float: left;
+    width: 30%;
+    margin: 20px 50px;
+}
+#about  p::after{
+    clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+#about p{
+    display: block;
+    font-size: 2.3rem;
+    margin: 50px;
+    text-align: left!important;
+    text-align: justify!important;
+    text-indent: 40px;
+}
+#about span{
+    color: rgb(171, 206, 168);
+    font-weight: 800;
+    font-style: italic;
+}
+
+/****************** Partner ************************/
+
+#partner h4,#partner h3{
+    margin: 25px 0;
+    color: rgb(190, 218, 189);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+#partner >div>div{
+    background-color: #FFF;
+    border-radius: 15px;
+    margin: 35px 0;
+}
+#partner .container >div:first-child{
+    padding: 40px;
+}
+.partnerPara{
+    padding: 30px;
+}
+#partner p{
+    text-align: justify;
+}
+#partner hr{
+    width: 150px;
+}
+.partnerFlex{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.img-left,.img-right{
+    padding: 0;
+    overflow: hidden;
+}
+.img-right img{
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.img-left img{
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+#partner img{
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 1s ease; 
+    -moz-transition: all 1s ease;
+    transition: all 1s ease;
+}
+#partner img:hover{
+    -webkit-transform:scale(1.1);
+    -moz-transform:scale(1.1);
+    transform:scale(1.1);
+}
+
+/****************** basket ************************/
+.showBasket th{
+    font-size:2rem;
+}
+
+.showBasket td{
+    padding: 10px;
+    width: 20%;
+}
+
+.Total{
+    width: 50%;
+    margin:40px 0 50px auto;
+}
+
+.Total table{
+    width:100%;
+    border: 1px solid #e5e5e5;
+    padding: 10px!important;
+}
+.Total tr{
+    border-top: 1px solid #e5e5e5;
+}
+.Total th{
+    text-align: left;
+}
+.Total td{
+    text-align: right;
+}
+.Total small{
+    display: block;
+}
+.showBasket .button1{
+    display: block;
+    margin: 30px auto;
+    width: 50%;
+}
+
+#confirm h4{
+    color: rgb(167, 187, 170);
+    margin-bottom: 40px;
+}
+#confirm div{
+    padding-bottom: 60px;
+}
+#confirm div p{
+    margin-bottom: 15px;
+}
+
+
+/**************************************************************
+*                        FOOTER                                *
+*                                                              *
+***************************************************************/
+
+footer{
+  background-color: rgb(80, 79, 79);
+}
+footer h3{
+    color: #fff;
+}
+footer ul li{
+    font-size: 2rem;
+    padding: 10px 0 ;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    list-style-type: circle;
+    color: #fff;
+}
+footer li:hover{
+    margin-left: 13px;
+}
+footer ul li a{
+    color: #fff;
+}
+
+
+/************ INFOS *******************/
+#info {
+	background-color: rgb(97, 97, 97);
+	color: rgba(255, 255, 255, 0.6);
+	text-transform: uppercase;
+	display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 25px;
+    
+}
+
+#info article {
+	cursor: pointer;
+    transition: all 0.2s ease 0s;
+    text-align: center;
+}
+
+#info article:hover {
+	color: white;
+	transition: all 0.2s ease 0s;
+}
+
+#info i {
+    color: rgba(190, 218, 189,0.84);
+	display: block;
+	text-align: center;
+	font-size: 2em;
+	padding-bottom: 5px;
+}
+
+/************ FOOT-NAV ***************/
+
+#foot-nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 15px 45px;
+}
+#foot-nav article{
+    text-align: left;
+    margin: 30px 0;
+    flex-basis: 20%;
+    
+}
+#foot-nav article ul{
+    margin: 25px 0;
+    padding: 0;
+    line-height: 1.2;
+    text-align: justify;
+}
+#foot-nav li:hover, footer li:hover a{
+    color: rgb(190, 218, 189);
+}
+#foot-nav article:last-child li:hover{
+    color: white;
+    margin-left: 0;
+} 
+ #foot-nav article:last-child a::before{
+    content: "";
+} 
+
+#reseaux{
+    display: flex;
+}
+#reseaux .fab{
+    font-size: 2.8rem;
+    color: rgb(181, 205, 180);
+    padding: 0.9rem;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 30px;
+}
+#reseaux .fa-facebook-f{
+    padding: 9px 14px;
+}
+#reseaux a{
+    padding: 0;
+}
+#reseaux li{
+    list-style: none;
+}
+
+
+/************ COPYRIGHT ***************/
+#copyright{
+    text-align: center;
+    color: rgb(144, 147, 150);
+}
+#copyright p{
+    background-color: rgba(44, 44, 44, 0.2);
+    padding: 10px 0;
+    display: block;
+    margin-bottom: 0;
+}
+
+
+
+/**************************************************************
+*                        RESPONSIVE                            *
+*                                                              *
+***************************************************************/
+@media screen and (max-width: 1420px){
+    .bigPhoto img{
+        margin-bottom: -380px;
+    }
+    .paraPhoto{
+        font-size: 75px;
+        margin-bottom: 270px;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+  
+/********** layout ******************/
+    #logo{  
+        flex-basis: 100%;
+        text-align: center;
+    }
+    #logo img{
+        margin: 10px 0;
+        width: 170px;
+    }
+    header ul{
+        flex-basis: 100%;
+        text-align: center;
+        padding: 0;
+
+    }
+    header ul li{
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+    header >div div+div, #panier{
+        flex-basis: 100%;
+    }
+    #panier{
+        padding: 15px 30px;
+    }
+
+    
+    #info article{
+        flex-basis: 50%;
+        margin-top: 15px;
+    }
+    
+    #foot-nav article{
+        flex-basis: 35%;
+    }
+
+/********** home *****************/
+    
+    .bigPhoto img{
+        margin-bottom: -250px;
+    }
+    .paraPhoto{
+        font-size: 60px;
+        margin-bottom: 170px;
+    }
+    .comment{
+        margin: 20px 0;
+    }
+    .comment img{
+        width: 170px;
+    }
+    .comment figure{
+        flex-basis: 100%;
+        margin-bottom: 15px;
+    }
+
+/************ menus ************/
+
+    #allFormules article{
+        width: 30%;
+    }
+    #allProducts article{
+        width: 25%;
+    }
+
+/**** details menu et produits***/
+    .details >div:first-child{
+        flex-basis: 50%;
+    }
+    .details >div:last-child{
+        flex-basis: 50%;
+    }
+    .photoUpdate{
+        height: 280px;
+        width: 52%;
+    }
+}
+
+
+@media screen and (max-width: 965px){
+    .bigPhoto img{
+        margin-bottom: -230px;
+    }
+    .paraPhoto{
+        font-size: 50px;
+        margin-bottom: 145px;
+    }
+
+    /********** faq **************/
+   
+    #faq h4{
+        font-size: 2.4rem;
+    }
+    #faq{
+        margin-top: 20px;
+        padding: 70px 40px;
+    } 
+    /************ menus ************/
+
+    #allFormules article{
+        width: 40%;
+    }
+    #allProducts article{
+        width: 35%;
+    }
+
+    /**** details menu et produits***/
+    .details{
+        flex-direction: column;
+        align-items: center;
+        width: 95%;
+    }
+    .details>div:first-child img{
+        height: 60%;
+    }
+    .details >div:last-child{
+        margin-left: 0px;
+    }
+    .details>*{
+        width: 70%;
+    }
+    .details h2{
+        font-size: 2.6rem;
+        margin: 30px 0 20px
+    }
+    .details .valider{
+        flex-direction: column;
+        margin: 0;
+    }
+    
+    .valider input[type=number]{
+        width: 70px;
+        margin-top: 0;
+    }
+    .valider button{
+        flex-basis: 70%;
+        padding: 20px;
+        margin-left: 0;
+    }
+    .photoUpdate{
+        height: 280px;
+        width: 60%;
+    }
+
+    /******* Basket**************/
+    .showBasket #Total{
+        width: 90%;
+    }
+    .showBasket .button1{
+        width: 100%;
+    }
+
+    /******* partner**************/
+    #partner img{
+        border-radius: 15px 15px 0 0;
+    }
+    
+}
+
+@media screen and (max-width: 795px){
+    h2{
+        font-size: 4.3rem;
+    }
+    #info article{
+        flex-basis: 100%;
+        margin-top: 15px;
+    }
+    
+    #foot-nav article{
+        flex-basis: 100%;
+        text-align: center;
+    }
+    #foot-nav ul li{
+        text-align: center;
+    }
+    footer li:hover{
+        margin-left: 0;
+    }
+    footer ul li a::before{
+        content: "";
+    }
+    #reseaux{
+       justify-content: center;
+    }
+    
+    .bigPhoto img{
+        margin-bottom: -230px;
+    }
+    .paraPhoto{
+        margin-bottom: 70px;
+    }
+    .photoUpdate{
+        height: 230px;
+        width: 70%;
+    }
+    #about,#delivery{
+        padding-top: 80px;
+    }
+    #about img{
+        display: none;
+    }
+}
+@media screen and (max-width: 650px){
+    .bigPhoto img{
+        margin-bottom: -195px;
+    }
+    .paraPhoto{
+        font-size: 41px;
+        margin-bottom: 120px;
+    }
+    #about,#delivery{
+        padding-top: 10px;
+    }
+
+    /********* faq ****************/
+
+    #faq h4{
+        font-size: 2.1rem;
+    }
+    #faq p{
+        line-height: 1.2;
+    }
+    /************ menus ************/
+
+    #allFormules article{
+        width: 100%;
+    }
+    #allFormules a div{
+        height: 300px;
+    }
+    #allProducts article{
+        width: 100%;
+    }
+    #allProducts a div{
+        height: 350px;
+    }
+    .photoUpdate{
+        height: 230px;
+        width: 90%;
+    }
+    #choix{
+        flex-direction: column;
+        padding: 0;
+        margin: 0 auto;
+        width: 90%;
+        font-size: 2rem;
+    }
+    #slider h4{
+        font-size: 2.7rem;
+    }
+    
+}
+@media screen and (max-width: 566px){
+    .bigPhoto img{
+        margin-bottom: -150px;
+    }
+    .paraPhoto{
+        font-size: 34px;
+        margin-bottom: 70px;
+    }
+    
+}
+
+
+

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla|Monda&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chilanka|Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="<?=$router->getWwwPath()."/images/favicon.ico" ?>" /> 
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.11.2/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?=$router->getWwwPath()."/css/normalize.css"?>">
+    <link rel="stylesheet" href="<?=$router->getWwwPath()."/css/style.css"?>">
+</head>
+<body>
+    <header>
+        <section id="topbar">Livraison offerte à partir de 25€ d'achat !</section>
+        <div>
+            <div id="logo">
+                <a href="<?=$router->generateUrl("dej_home_main") ?>"><img src="<?=$router->getWwwPath().'/images/logo2.jpg'?>" alt=""></a>
+            </div >
+            <div>
+                <ul class="nav nav-pills nav-fill">
+                    <li>
+                        <a  href="<?=$router->generateUrl("dej_about_show") ?>">Le concept</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toogle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nos formules</a>
+                        <div class="dropdown-menu ">
+                            <a class="dropdown-item " href="<?=$router->generateUrl("dej_menus_show") ?>">menus</a>
+                            <a class="dropdown-item" href="<?=$router->generateUrl("dej_products_show") ?>">a la carte</a>
+                        </div>
+                    </li>
+                    <li >
+                        <a  href="<?=$router->generateUrl("dej_delivery_show")?>">livraison</a>
+                    </li>
+                    <li >
+                        <a  href="<?=$router->generateUrl("dej_contact_show")?>">Contact </a>
+                    </li>
+                    <li >
+                        <a  href="<?=$router->generateUrl("dej_user_compte").'?id='.$userSession->getId()?>">mon compte </a>
+                    </li>
+                </ul>
+                <div id="panier">
+                    <?php if($userSession->isAuthenticated()) : ?>
+                        <a href="<?=$router->generateUrl('dej_user_logout')?>">Deconnexion</a>
+                    <?php else : ?>
+                        <a href="<?=$router->generateUrl("dej_user_login")?>" class="gris">se connecter</a>
+                    <?php endif ; ?>
+                        <a href="<?=$router->generateUrl("dej_order_showbasket")?>" ><img src="<?=$router->getWwwPath().'/images/icones/shopping-bag.png'?>" alt=""></a>
+                        <p id="nbrCart"> 
+                            <?php if($userSession->isAuthenticated()) : ?>
+                                <?php if(!empty($_SESSION['nbrProducts'])) : ?>
+                                <?=$_SESSION['nbrProducts']?>
+                                <?php endif ; ?>
+                           <?php endif ; ?>
+                        </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <aside>
+        <?php foreach($flashbag->getAllMessages() as $message) :?>
+            <ul class="flashbag_message">
+                <li><?= $message ?></li>
+            </ul>
+        <?php endforeach;?>
+    </aside>
+    <main>
+        <div>
+            <?php include $templatePath ?>
+        </div>
+    </main>
+    <footer>
+        <section id="info">
+            <article>
+                <i class="fas fa-croissant"></i>
+                <small>Des produits frais et variés</small>
+            </article>
+            <article>
+                <i class="fas fa-store"></i>
+                <small>Préparés par votre artisan boulanger</small>
+            </article>
+            <article>
+                <i class="fas fa-truck"></i>
+                <small>Livrés chez vous à toute heure</small>
+            </article>
+            <article>
+                <i class="fas fa-phone"></i>
+                <small>Service client</small>
+            </article>
+        </section>
+        <section id="foot-nav">
+                <article>
+                    <h3>Accueil</h3>
+                    <ul>
+                        <li><a href="<?=$router->generateUrl("dej_about_show") ?>">Le concept</a></li>
+                        <li><a href="<?=$router->generateUrl("dej_menus_show")?>">Nos menus</a></li>
+                        <li><a href="<?=$router->generateUrl("dej_delivery_show")?>">Livraison</a></li>
+                        <li><a href="<?=$router->generateUrl("dej_contact_show")?>">Contact</a></li>
+                    </ul>
+                </article>
+                <article>
+                    <h3>A propos</h3>
+                    <ul>
+                        <li><a href="<?=$router->generateUrl("dej_cgu_show") ?>">Nos CGU</a></li>
+                        <li><a href="<?=$router->generateUrl("dej_cgv_show") ?>">Nos CGV</a></li>
+                        <li><a href="<?=$router->generateUrl("dej_mentions_show") ?>">Mentions légales</a></li>
+                    </ul>
+                </article>
+                <article>
+                    <h3>Informations</h3>
+                    <ul>
+                        <li><a href="<?=$router->generateUrl("dej_faq_show")?>">FAQ</a></li>
+                        <li><a href="<?=$router->generateUrl("dej_partner_show")?>">Partenariat</a></li>
+                    </ul>
+                </article>
+                <article>
+                    <h3>Suivez-nous</h3>
+                    <ul id="reseaux">
+                        <li><a href="http://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="http://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="http://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </article>
+        </section>
+        <section id="copyright">
+           <p>Mon p'tit dej © 2019 - Tous les droits sont reservés</p> 
+        </section>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="<?=$router->getWwwPath()."/js/script.js"?>"></script>
+</body>
+</html>
